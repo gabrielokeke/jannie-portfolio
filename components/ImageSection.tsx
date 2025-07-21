@@ -6,7 +6,6 @@ import React from "react";
 import Slider from "react-slick";
 
 const images = [
-  "/rose1.jpg",
   "/40.jpg",
   "/08.jpg",
   "/04.jpg",
@@ -23,9 +22,9 @@ const settings = {
   speed: 500,         // Transition animation speed in ms
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: true,
+  arrows: false,
   autoplay: true,     // Enable automatic slide change
-  autoplaySpeed: 2000 // Time between slides in ms (3000ms = 3 seconds)
+  autoplaySpeed: 2000 // Time between slides in ms (2000ms = 2 seconds)
 };
 
   return (

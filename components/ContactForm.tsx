@@ -2,21 +2,37 @@
 
 import { useState } from "react";
 
-// A reusable, styled contact form component powered by Formspree
+// Define types for better TypeScript support
+interface FormData {
+  username: string;
+  email: string;
+  text: string;
+}
+
+interface Alert {
+  type: "success" | "error" | "";
+  message: string;
+  visible: boolean;
+}
+
+// A reusable, styled contact form component powered by Nodemailer
 const ContactForm = () => {
   // State to hold form input values
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     username: "",
     email: "",
     text: "",
   });
 
   // State to display submission result
-  const [alert, setAlert] = useState({
-    type: "", // "success" or "error"
+  const [alert, setAlert] = useState<Alert>({
+    type: "",
     message: "",
     visible: false,
   });
+
+  // State to track loading/submitting status
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Handles input changes and updates state
   const handleChange = (
@@ -29,10 +45,11 @@ const ContactForm = () => {
   // Handles the form submission logic
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // prevent page reload
+    setIsSubmitting(true);
 
     try {
-      // Send the data to Formspree (replace 'yourFormIdHere')
-      const response = await fetch("https://formspree.io/f/mzzvzjoe", {
+      // Send the data to our API route
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,28 +57,32 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         // On success, show success alert and reset form
         setAlert({
           type: "success",
-          message: "Message sent successfully!",
+          message: result.message || "Message sent successfully!",
           visible: true,
         });
         setFormData({ username: "", email: "", text: "" });
       } else {
-        throw new Error("Something went wrong. Please try again.");
+        throw new Error(result.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
-  // On error, show failure alert (TypeScript-safe)
-  const errorMessage =
-    error instanceof Error ? error.message : "Failed to send message.";
+      // On error, show failure alert (TypeScript-safe)
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to send message.";
 
-  setAlert({
-    type: "error",
-    message: errorMessage,
-    visible: true,
-  });
-}
+      setAlert({
+        type: "error",
+        message: errorMessage,
+        visible: true,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
 
     // Hide alert after 5 seconds
     setTimeout(() => {
@@ -113,6 +134,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 className="w-full rounded border px-4 py-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -132,6 +154,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 className="w-full rounded border px-4 py-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -151,15 +174,21 @@ const ContactForm = () => {
                 onChange={handleChange}
                 className="w-full rounded border px-4 py-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
             {/* Submit button */}
             <button
               type="submit"
-              className="w-full rounded bg-amber-400 px-6 py-3 font-bold text-gray-900 transition hover:bg-amber-300"
+              disabled={isSubmitting}
+              className={`w-full rounded px-6 py-3 font-bold text-gray-900 transition ${
+                isSubmitting
+                  ? "bg-amber-300 cursor-not-allowed opacity-70"
+                  : "bg-amber-400 hover:bg-amber-300"
+              }`}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>

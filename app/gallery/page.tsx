@@ -12,6 +12,31 @@ const albums = [
     { src: "/rose5.jpg" },
   ],
   },
+
+    {
+    title: "Urban Edge",
+    description:
+      "Urban Edge reflects the gritty and stylish life of the city streets. Bold attitudes meet sleek fashion in this modern, edgy collection.",
+    images: [
+      { src: "/29.jpg" },
+      { src: "/30.jpg" },
+      { src: "/31.5.jpg" },
+      { src: "/32.jpg" },
+    ],
+  },
+
+    {
+    title: "Power Moves",
+    description:
+      "Power Moves embodies confidence and assertiveness. This album features dynamic poses and impactful moments that convey unstoppable energy and drive.",
+    images: [
+      { src: "/33.jpg" },
+      { src: "/34.jpg" },
+      { src: "/35.jpg" },
+      { src: "/36.jpg" },
+    ],
+  },
+
   {
     title: "Texas Style Shoot",
     description:
@@ -107,30 +132,6 @@ const albums = [
     ],
   },
 
-  {
-    title: "Power Moves",
-    description:
-      "Power Moves embodies confidence and assertiveness. This album features dynamic poses and impactful moments that convey unstoppable energy and drive.",
-    images: [
-      { src: "/33.jpg" },
-      { src: "/34.jpg" },
-      { src: "/35.jpg" },
-      { src: "/36.jpg" },
-    ],
-  },
-
-
-  {
-    title: "Urban Edge",
-    description:
-      "Urban Edge reflects the gritty and stylish life of the city streets. Bold attitudes meet sleek fashion in this modern, edgy collection.",
-    images: [
-      { src: "/29.jpg" },
-      { src: "/30.jpg" },
-      { src: "/31.5.jpg" },
-      { src: "/32.jpg" },
-    ],
-  },
 ];
 
 export default function GalleryPage() {

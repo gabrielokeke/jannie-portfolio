@@ -16,16 +16,16 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-cover bg-center md:bg-[url('/model.jpg')] bg-[url('/model1.jpg')]">
-      <div className="absolute inset-0 bg-transparent md:bg-gradient-to-b md:from-black/70 md:to-black/90" />
+    <div className="relative w-full h-screen overflow-hidden bg-cover bg-center md:bg-[url('/model.jpg')] bg-[url('/08.jpg')]">
+      <div className="absolute inset-0 bg-transparent bg-gradient-to-b from-black/70 to-black/90" />
 
-      <div className={`relative z-10 pt-32 md:pt-48 lg:pt-64 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+      <div className={`relative z-10 pt-32 md:pt-48 lg:pt-48 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <p className={`ml-5 md:ml-20 text-lg md:text-xl lg:text-2xl text-white transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
           Fashion model, Content creator
         </p>
 
         <h1 className={`ml-5 md:ml-20 text-3xl md:text-6xl lg:text-7xl font-bold text-white transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
-          Hi I'm <span className="text-yellow-400">Jannie</span> <br />
+          Hi I'm <span className="text-yellow-400">Your Name</span> <br />
           A Runaway model who brings smiles to faces through my aesthetism
         </h1>
 
