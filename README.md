@@ -45,14 +45,7 @@ Create a .env file inside the backend folder:
 EMAIL_USER=your@email.com
 EMAIL_PASS=yourpassword
 EMAIL_TO=recipient@email.com
-📂 Folder Structure
-app/
-│
-├── public/        # Images & logos
-├── components/    # Reusable UI components
-├── pages/         # Page sections (Home, About, Contact)
-├── App.jsx        # Root component
-└── main.jsx       # Entry point
+
 
 📧 Contact Form
 The contact form is fully functional and sends email using Nodemailer. If the message is sent successfully, a toast notification appears.
