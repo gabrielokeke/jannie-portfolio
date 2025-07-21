@@ -75,6 +75,8 @@ Make sure your email credentials are set properly .env.
 
  Dark mode toggle
 
-🧑‍💻 Author
+
+
+
 Created with precision by Gabriel Okeke
 
