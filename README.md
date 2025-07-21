@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jannie Portfolio
 
-## Getting Started
+A minimalist, responsive portfolio website built for showcasing the creative and professional profile of Jannie. Developed using React (Vite) and styled with Tailwind CSS, with a functional contact form powered by Nodemailer.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- ⚡️ Fast and lightweight (Vite + React)
+- 🎨 Tailwind CSS for styling
+- 📬 Contact form with Nodemailer backend
+- ✅ Fully responsive and mobile-friendly
+- 🧼 Clean and minimal design
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🖼️ Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+👉 [View the live site here](https://jannie-portfolio.netlify.app/)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Frontend | Backend |
+|----------|---------|
+| Next.js  | Node.js + Nodemailer |
+| Tailwind CSS | Express (API route for form) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧪 Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repo**
+git clone https://github.com/gabrielokeke/jannie-portfolio.git
+cd jannie-portfolio
+Install dependencies
+npm install
+Run the app: npm run dev
+Setup backend (optional if you're testing contact form)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The backend folder uses Nodemailer to send emails.
+Configure your environment variables:
+
+Create a .env file inside the backend folder:
+
+EMAIL_USER=your@email.com
+EMAIL_PASS=yourpassword
+EMAIL_TO=recipient@email.com
+📂 Folder Structure
+app/
+│
+├── public/        # Images & logos
+├── components/    # Reusable UI components
+├── pages/         # Page sections (Home, About, Contact)
+├── App.jsx        # Root component
+└── main.jsx       # Entry point
+
+📧 Contact Form
+The contact form is fully functional and sends email using Nodemailer. If the message is sent successfully, a toast notification appears.
+
+Make sure your email credentials are set properly .env.
+
+📌 To Do / Improvements
+ Project section: add more metadata (tech stack, description)
+
+ Add loading/error state to form
+
+ Include favicon and social previews
+
+ Dark mode toggle
+
+🧑‍💻 Author
+Made with ❤️ by Gabriel Okeke
+
