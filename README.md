@@ -1,4 +1,4 @@
-# Jannie Portfolio
+# Jannie's Portfolio
 
 A minimalist, responsive portfolio website built for showcasing the creative and professional profile of Jannie. Developed using React (Vite) and styled with Tailwind CSS, with a functional contact form powered by Nodemailer.
 
