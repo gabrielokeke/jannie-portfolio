@@ -30,25 +30,39 @@ A minimalist, responsive portfolio website built for showcasing the creative and
 ## 🧪 Installation
 
 1. **Clone the repo**
-git clone https://github.com/gabrielokeke/jannie-portfolio.git
-cd jannie-portfolio
-Install dependencies
-npm install
+git clone https://github.com/gabrielokeke/jannie-portfolio.git,
+
+
+cd jannie-portfolio,
+
+
+Install dependencies: 
+ npm install
+
+ 
 Run the app: npm run dev
+
+
 Setup backend (optional if you're testing contact form)
 
 The backend folder uses Nodemailer to send emails.
+
+
 Configure your environment variables:
 
 Create a .env file inside the backend folder:
 
-EMAIL_USER=your@email.com
-EMAIL_PASS=yourpassword
+EMAIL_USER=your@email.com,
+
+EMAIL_PASS=yourpassword,
+
 EMAIL_TO=recipient@email.com
 
 
-📧 Contact Form
-The contact form is fully functional and sends email using Nodemailer. If the message is sent successfully, a toast notification appears.
+📧 Contact Form: 
+ The contact form is fully functional and sends email using Nodemailer. If the message is sent successfully, a toast notification appears.
+
+ 
 
 Make sure your email credentials are set properly .env.
 
@@ -62,5 +76,5 @@ Make sure your email credentials are set properly .env.
  Dark mode toggle
 
 🧑‍💻 Author
-Made with ❤️ by Gabriel Okeke
+Created with precision by Gabriel Okeke
 
