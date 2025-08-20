@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { FaPaperPlane } from "react-icons/fa";
 
-// Define types for better TypeScript support
 interface FormData {
   username: string;
   email: string;
@@ -15,26 +16,21 @@ interface Alert {
   visible: boolean;
 }
 
-// A reusable, styled contact form component powered by Nodemailer
 const ContactForm = () => {
-  // State to hold form input values
   const [formData, setFormData] = useState<FormData>({
     username: "",
     email: "",
     text: "",
   });
 
-  // State to display submission result
   const [alert, setAlert] = useState<Alert>({
     type: "",
     message: "",
     visible: false,
   });
 
-  // State to track loading/submitting status
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handles input changes and updates state
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -42,25 +38,20 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handles the form submission logic
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // prevent page reload
+    e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Send the data to our API route
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const result = await response.json();
 
       if (response.ok && result.success) {
-        // On success, show success alert and reset form
         setAlert({
           type: "success",
           message: result.message || "Message sent successfully!",
@@ -71,59 +62,47 @@ const ContactForm = () => {
         throw new Error(result.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
-      // On error, show failure alert (TypeScript-safe)
-      const errorMessage =
-        error instanceof Error ? error.message : "Failed to send message.";
-
-      setAlert({
-        type: "error",
-        message: errorMessage,
-        visible: true,
-      });
+      const errorMessage = error instanceof Error ? error.message : "Failed to send message.";
+      setAlert({ type: "error", message: errorMessage, visible: true });
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => setAlert({ type: "", message: "", visible: false }), 5000);
     }
-
-    // Hide alert after 5 seconds
-    setTimeout(() => {
-      setAlert({ type: "", message: "", visible: false });
-    }, 5000);
   };
 
   return (
-    <div className="w-full max-w-xl">
+    <motion.div
+      className="w-full max-w-xl"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="rounded-lg shadow-lg border border-gray-200 bg-white">
-        {/* Header */}
         <header className="bg-amber-400 p-6 rounded-t-lg shadow-md">
           <h2 className="text-center text-2xl font-extrabold text-gray-900">
             Contact
           </h2>
         </header>
 
-        {/* Form content */}
         <div className="p-6">
-          {/* Alert display */}
           {alert.visible && (
-            <div
+            <motion.div
               className={`mb-6 rounded px-4 py-3 text-center font-semibold ${
-                alert.type === "success"
-                  ? "bg-green-100 text-green-800"
-                  : "bg-red-100 text-red-800"
+                alert.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
               }`}
               role="alert"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
             >
               {alert.message}
-            </div>
+            </motion.div>
           )}
 
-          {/* Contact form */}
           <form noValidate onSubmit={handleSubmit} className="space-y-6">
-            {/* Name field */}
             <div>
-              <label
-                htmlFor="username"
-                className="block mb-2 font-semibold text-gray-700"
-              >
+              <label htmlFor="username" className="block mb-2 font-semibold text-gray-700">
                 Name &amp; Surname
               </label>
               <input
@@ -138,12 +117,8 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* Email field */}
             <div>
-              <label
-                htmlFor="email"
-                className="block mb-2 font-semibold text-gray-700"
-              >
+              <label htmlFor="email" className="block mb-2 font-semibold text-gray-700">
                 Email
               </label>
               <input
@@ -158,12 +133,8 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* Message field */}
             <div>
-              <label
-                htmlFor="text"
-                className="block mb-2 font-semibold text-gray-700"
-              >
+              <label htmlFor="text" className="block mb-2 font-semibold text-gray-700">
                 Message
               </label>
               <textarea
@@ -178,22 +149,21 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* Submit button */}
-            <button
+            <motion.button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full rounded px-6 py-3 font-bold text-gray-900 transition ${
-                isSubmitting
-                  ? "bg-amber-300 cursor-not-allowed opacity-70"
-                  : "bg-amber-400 hover:bg-amber-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`w-full rounded px-6 py-3 font-bold text-gray-900 transition flex items-center justify-center gap-2 ${
+                isSubmitting ? "bg-amber-300 cursor-not-allowed opacity-70" : "bg-amber-400 hover:bg-amber-300"
               }`}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </button>
+              {isSubmitting ? "Sending..." : "Send Message"} <FaPaperPlane />
+            </motion.button>
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

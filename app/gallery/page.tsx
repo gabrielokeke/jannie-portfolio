@@ -1,31 +1,35 @@
+"use client";
+
 import GalleryAlbum from "@/components/GalleryAlbum";
+import { FaBasketballBall } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const albums = [
   {
-  title: "Kiss the rose",
-  description:
-    "Kiss the Rose is a visual love letter to elegance, passion, and vulnerability. Each frame captures the delicate balance between beauty and strength like a rose kissed by dusk. With soft lighting, expressive emotion, and romantic depth, this collection whispers stories of longing, grace, and quiet power blooming in full color.",
-  images: [
-    { src: "/bskt.jpg" },
-    { src: "/bskt1.jpg" },
-    { src: "/bskt2.jpg" },
-    { src: "/bskt3.jpg" },
-  ],
+    title: "Court Colors",
+    description:
+      "Court Colors blends fashion and athleticism on a vibrant basketball court. With striking red and blue outfits, dynamic movement, and playful poses, this editorial captures energy, confidence, and style in motion. It’s a celebration of sport, street style, and expressive fashion photography.",
+    images: [
+      { src: "/bskt.jpg" },
+      { src: "/bskt1.jpg" },
+      { src: "/bskt2.jpg" },
+      { src: "/bskt3.jpg" },
+    ],
   },
 
-    {
-  title: "Kiss the rose",
-  description:
-    "Kiss the Rose is a visual love letter to elegance, passion, and vulnerability. Each frame captures the delicate balance between beauty and strength like a rose kissed by dusk. With soft lighting, expressive emotion, and romantic depth, this collection whispers stories of longing, grace, and quiet power blooming in full color.",
-  images: [
-    { src: "/rose1.jpg" },
-    { src: "/rose2.jpg" },
-    { src: "/rose4.jpg" },
-    { src: "/rose5.jpg" },
-  ],
+  {
+    title: "Kiss the Rose",
+    description:
+      "Kiss the Rose is a visual love letter to elegance, passion, and vulnerability. Each frame captures the delicate balance between beauty and strength like a rose kissed by dusk. With soft lighting, expressive emotion, and romantic depth, this collection whispers stories of longing, grace, and quiet power blooming in full color.",
+    images: [
+      { src: "/rose1.jpg" },
+      { src: "/rose2.jpg" },
+      { src: "/rose4.jpg" },
+      { src: "/rose5.jpg" },
+    ],
   },
 
-    {
+  {
     title: "Urban Edge",
     description:
       "Urban Edge reflects the gritty and stylish life of the city streets. Bold attitudes meet sleek fashion in this modern, edgy collection.",
@@ -37,7 +41,7 @@ const albums = [
     ],
   },
 
-    {
+  {
     title: "Power Moves",
     description:
       "Power Moves embodies confidence and assertiveness. This album features dynamic poses and impactful moments that convey unstoppable energy and drive.",
@@ -49,7 +53,7 @@ const albums = [
     ],
   },
 
-  {
+    {
     title: "Texas Style Shoot",
     description:
       "Experience the rugged charm and bold spirit of the Lone Star State through this Texas Style Shoot. From the wide-open plains to the intimate moments, these photos capture the essence of Western flair and timeless fashion, showcasing powerful poses and vibrant energy.",
@@ -144,20 +148,37 @@ const albums = [
     ],
   },
 
+
+  // ... rest of your albums
 ];
 
 export default function GalleryPage() {
   return (
     <div className="min-h-screen pt-40 bg-black py-16 px-4">
-      <h1 className="text-center text-5xl font-bold mb-10 text-yellow-400">
+      <motion.h1
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center text-5xl font-bold mb-10 text-yellow-400 flex items-center justify-center gap-4"
+      >
+        <FaBasketballBall className="animate-bounce" />
         Jannie's Gallery
-      </h1>
-      <br />
-      <br />
+      </motion.h1>
 
       {albums.map((album, i) => (
-        <GalleryAlbum key={i} album={album} />
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: i * 0.2 }}
+        >
+          <GalleryAlbum album={album} />
+        </motion.div>
       ))}
     </div>
   );
 }
+
+
+

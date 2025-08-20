@@ -1,16 +1,16 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaUser, FaGraduationCap, FaBriefcase, FaStar } from "react-icons/fa";
 
 const TabSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('skills');
+  const [activeTab, setActiveTab] = useState<string>("skills");
 
-  const handleTabClick = (tab: string) => {
-    setActiveTab(tab);
-  };
   const tabs = [
     {
-      id: 'skills',
-      label: 'Skills',
+      id: "skills",
+      label: "Skills",
+      icon: <FaStar />,
       content: (
         <ul className="pl-5">
           <li className="list-none my-2.5">
@@ -26,11 +26,12 @@ const TabSection: React.FC = () => {
             <br />Promoting brands and products in advertising campaigns
           </li>
         </ul>
-      )
+      ),
     },
     {
-      id: 'experience',
-      label: 'Experience',
+      id: "experience",
+      label: "Experience",
+      icon: <FaBriefcase />,
       content: (
         <ul className="pl-5">
           <li className="list-none my-2.5">
@@ -46,11 +47,12 @@ const TabSection: React.FC = () => {
             <br />Participated in modeling workshops and training programs
           </li>
         </ul>
-      )
+      ),
     },
     {
-      id: 'education',
-      label: 'Education',
+      id: "education",
+      label: "Education",
+      icon: <FaGraduationCap />,
       content: (
         <ul className="pl-5">
           <li className="list-none my-2.5">
@@ -66,11 +68,12 @@ const TabSection: React.FC = () => {
             <br />Online courses on posing and personal branding
           </li>
         </ul>
-      )
+      ),
     },
     {
-      id: 'personal',
-      label: 'Personal Info',
+      id: "personal",
+      label: "Personal Info",
+      icon: <FaUser />,
       content: (
         <ul className="pl-5">
           <li className="list-none my-2.5">
@@ -79,46 +82,63 @@ const TabSection: React.FC = () => {
           </li>
           <li className="list-none my-2.5">
             <span className="text-yellow-400 text-sm font-semibold">Height</span>
-            <br />5'9" 
+            <br />5'9"
           </li>
           <li className="list-none my-2.5">
             <span className="text-yellow-400 text-sm font-semibold">Shoe size</span>
             <br />40
           </li>
-
           <li className="list-none my-2.5">
             <span className="text-yellow-400 text-sm font-semibold">Nationality</span>
             <br />Nigerian
           </li>
         </ul>
-      )
-    }
+      ),
+    },
   ];
 
   return (
     <>
-      <div className="flex my-5 mb-10 gap-6 md:gap-10 flex-wrap select-none">
+      {/* Tabs */}
+      <div className="flex my-5 mb-10 gap-6 md:gap-10 flex-wrap select-none relative">
         {tabs.map((tab) => (
-          <p
+          <button
             key={tab.id}
-            className={`text-lg font-medium cursor-pointer relative text-white pb-1 transition-colors duration-300 whitespace-nowrap flex-shrink-0 hover:text-yellow-400 ${
-              activeTab === tab.id ? 'after:w-full' : 'after:w-0'
-            } after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-yellow-400 after:transition-all after:duration-500`}
-            onClick={() => handleTabClick(tab.id)}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex items-center gap-2 text-lg font-medium cursor-pointer relative pb-1 transition-colors duration-300 whitespace-nowrap flex-shrink-0 ${
+              activeTab === tab.id ? "text-yellow-400" : "text-white hover:text-yellow-400"
+            }`}
           >
+            {tab.icon}
             {tab.label}
-          </p>
+            {activeTab === tab.id && (
+              <motion.div
+                layoutId="underline"
+                className="absolute left-0 -bottom-1 h-0.5 w-full bg-yellow-400 rounded"
+              />
+            )}
+          </button>
         ))}
       </div>
 
-      {tabs.map((tab) => (
-        <div
-          key={tab.id}
-          className={`${activeTab === tab.id ? 'block' : 'hidden'} text-gray-300 text-base leading-relaxed`}
-        >
-          {tab.content}
-        </div>
-      ))}
+      {/* Animated Tab Content */}
+      <AnimatePresence mode="wait">
+        {tabs.map(
+          (tab) =>
+            activeTab === tab.id && (
+              <motion.div
+                key={tab.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                className="text-gray-300 text-base leading-relaxed"
+              >
+                {tab.content}
+              </motion.div>
+            )
+        )}
+      </AnimatePresence>
     </>
   );
 };

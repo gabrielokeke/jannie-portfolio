@@ -3,16 +3,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { FiHome, FiUser, FiImage, FiMail, FiMenu, FiX } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/gallery", label: "Gallery" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Home", icon: <FiHome className="mr-2 inline" /> },
+    { href: "/about", label: "About", icon: <FiUser className="mr-2 inline" /> },
+    { href: "/gallery", label: "Gallery", icon: <FiImage className="mr-2 inline" /> },
+    { href: "/contact", label: "Contact", icon: <FiMail className="mr-2 inline" /> },
   ];
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
@@ -22,39 +24,33 @@ export default function Navbar() {
     <>
       {/* Navbar */}
       <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-yellow-400 px-6 py-4 shadow-md md:px-20">
-        {/* Logo */}
         <div>
           <h1 className="font-extrabold text-3xl text-black">Jannie</h1>
         </div>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden gap-6 text-lg font-bold md:flex">
-          {navLinks.map(({ href, label }) => {
-            const isActive = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={`rounded-md px-6 py-2 transition-all duration-200 ${
-                  isActive ? "" : ""
-                }`}
-              >
+        {/* Desktop Links */}
+        <div className="hidden md:flex gap-6 text-lg font-bold relative">
+          {navLinks.map(({ href, label, icon }) => (
+            <motion.div
+              key={href}
+              whileHover={{ y: -3, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Link href={href} className="flex items-center px-2 py-1">
+                {icon}
                 {label}
               </Link>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
 
         {/* Mobile Hamburger */}
         <button
-          className="flex flex-col gap-1 md:hidden"
+          className="md:hidden text-black text-2xl"
           onClick={toggleSidebar}
           aria-label="Toggle menu"
-          type="button"
         >
-          <span className="h-0.5 w-6 bg-black transition-all duration-300"></span>
-          <span className="h-0.5 w-6 bg-black transition-all duration-300"></span>
-          <span className="h-0.5 w-6 bg-black transition-all duration-300"></span>
+          {isSidebarOpen ? <FiX /> : <FiMenu />}
         </button>
       </nav>
 
@@ -67,12 +63,11 @@ export default function Navbar() {
         />
       )}
 
-      {/* Sidebar */}
+      {/* Mobile Sidebar */}
       <aside
         className={`fixed right-0 top-0 z-50 h-full w-80 bg-yellow-400 shadow-lg transition-transform duration-300 ease-in-out md:hidden ${
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        aria-label="Mobile sidebar navigation"
       >
         <div className="flex items-center justify-between p-6">
           <h1
@@ -87,39 +82,27 @@ export default function Navbar() {
             className="rounded-full p-2"
             type="button"
           >
-            <svg
-              className="h-6 w-6 text-black"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <FiX className="text-black text-2xl" />
           </button>
         </div>
 
         <nav className="flex flex-col p-6 space-y-4">
-          {navLinks.map(({ href, label }) => {
-            const isActive = pathname === href;
-            return (
+          {navLinks.map(({ href, label, icon }) => (
+            <motion.div
+              key={href}
+              whileHover={{ x: 5, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <Link
-                key={href}
                 href={href}
                 onClick={closeSidebar}
-                className={`rounded-md px-4 py-3 text-lg font-bold transition-all duration-200 ${
-                  isActive ? "" : ""
-                }`}
+                className="flex items-center px-2 py-1 text-lg font-bold"
               >
+                {icon}
                 {label}
               </Link>
-            );
-          })}
+            </motion.div>
+          ))}
         </nav>
       </aside>
     </>
