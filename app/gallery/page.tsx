@@ -6,6 +6,18 @@ const albums = [
   description:
     "Kiss the Rose is a visual love letter to elegance, passion, and vulnerability. Each frame captures the delicate balance between beauty and strength like a rose kissed by dusk. With soft lighting, expressive emotion, and romantic depth, this collection whispers stories of longing, grace, and quiet power blooming in full color.",
   images: [
+    { src: "/bskt.jpg" },
+    { src: "/bskt1.jpg" },
+    { src: "/bskt2.jpg" },
+    { src: "/bskt3.jpg" },
+  ],
+  },
+
+    {
+  title: "Kiss the rose",
+  description:
+    "Kiss the Rose is a visual love letter to elegance, passion, and vulnerability. Each frame captures the delicate balance between beauty and strength like a rose kissed by dusk. With soft lighting, expressive emotion, and romantic depth, this collection whispers stories of longing, grace, and quiet power blooming in full color.",
+  images: [
     { src: "/rose1.jpg" },
     { src: "/rose2.jpg" },
     { src: "/rose4.jpg" },

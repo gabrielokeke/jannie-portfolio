@@ -82,21 +82,10 @@ const TabSection: React.FC = () => {
             <br />5'9" 
           </li>
           <li className="list-none my-2.5">
-            <span className="text-yellow-400 text-sm font-semibold">Hair Color</span>
-            <br />Black
-          </li>
-          <li className="list-none my-2.5">
-            <span className="text-yellow-400 text-sm font-semibold">Eye Color</span>
-            <br />Brown
-          </li>
-          <li className="list-none my-2.5">
             <span className="text-yellow-400 text-sm font-semibold">Shoe size</span>
             <br />40
           </li>
-          <li className="list-none my-2.5">
-            <span className="text-yellow-400 text-sm font-semibold">Location</span>
-            <br />Cotonou, Benin Republic
-          </li>
+
           <li className="list-none my-2.5">
             <span className="text-yellow-400 text-sm font-semibold">Nationality</span>
             <br />Nigerian
