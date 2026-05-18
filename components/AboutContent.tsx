@@ -8,7 +8,7 @@ const AboutContent: React.FC = () => {
     "I'm a professional fashion and commercial model with experience working on photo shoots, runway shows, and promotional events. I have a strong presence in front of the camera, a versatile look, and a passion for bringing creative visions to life through modeling. I strive to combine confidence, style, and professionalism to deliver impactful and memorable performances.",
     "Over the years, I've walked in numerous fashion shows, collaborated with photographers and brands, and developed a versatile portfolio that highlights my adaptability across different modeling styles. I pride myself on being detail-oriented, resilient, and fully committed to every project I take on.",
     "Beyond modeling, I have a keen eye for styling, enjoy dancing to stay graceful, and constantly explore new trends to elevate my creative expression. My long-term vision includes walking in major fashion weeks across Paris, Milan, New York, and London, as well as appearing in global campaigns and prestigious fashion magazines.",
-    "I believe modeling is more than just appearances—it’s storytelling through expression, movement, and style. I aim to inspire aspiring models and young creatives to pursue their dreams fearlessly and embrace their individuality."
+    "I believe modeling is more than just appearances, it’s storytelling through expression, movement, and style. I aim to inspire aspiring models and young creatives to pursue their dreams fearlessly and embrace their individuality."
   ];
 
   return (

@@ -30,14 +30,14 @@ const albums = [
   },
 
   {
-    title: "Urban Edge",
+    title: "Receptionist",
     description:
-      "Urban Edge reflects the gritty and stylish life of the city streets. Bold attitudes meet sleek fashion in this modern, edgy collection.",
+      "Receptionist reflects the composure of a receptionist as well as the confidence required to occupy such a post. Bold attitude meets sleek fashion in this modern collection.",
     images: [
-      { src: "/29.jpg" },
-      { src: "/30.jpg" },
-      { src: "/31.5.jpg" },
-      { src: "/32.jpg" },
+      { src: "/41.jpg" },
+      { src: "/42.jpg" },
+      { src: "/43.jpg" },
+      { src: "/44.jpg" },
     ],
   },
 

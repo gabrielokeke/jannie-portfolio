@@ -12,7 +12,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-cover bg-center md:bg-[url('/model.jpg')] bg-[url('/08.jpg')]">
+    <div className="relative w-full h-screen overflow-hidden bg-cover bg-center md:bg-[url('/562.jpg')] bg-[url('/56.jpg')]">
       {/* Dark gradient overlay */}
       <div className="absolute inset-0 bg-transparent bg-gradient-to-b from-black/70 to-black/90" />
 

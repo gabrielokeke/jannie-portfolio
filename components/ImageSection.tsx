@@ -9,12 +9,16 @@ import { motion } from "framer-motion";
 import { FaCamera } from "react-icons/fa";
 
 const images = [
-  "/40.jpg",
-  "/08.jpg",
-  "/04.jpg",
-  "/27.jpg",
-  "/12.5.jpg",
-  "/29.jpg",
+  "/45.jpg",
+  "/50.jpg",
+  "/44.jpg",
+  "/53.jpg",
+  "/54.jpg",
+  "/52.jpg",
+  "/46.jpg",
+  "/51.jpg",
+  "/56.jpg",
+  "/57.jpg",
 ];
 
 const ImageSection: React.FC = () => {

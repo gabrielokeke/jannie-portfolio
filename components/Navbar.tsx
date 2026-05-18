@@ -46,7 +46,7 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-black text-2xl"
+          className="md:hidden text-black cursor-pointer  text-2xl"
           onClick={toggleSidebar}
           aria-label="Toggle menu"
         >
@@ -57,7 +57,7 @@ export default function Navbar() {
       {/* Sidebar Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden"
+          className="fixed inset-0 z-40 bg-black  bg-opacity-50 md:hidden"
           onClick={closeSidebar}
           aria-hidden="true"
         />

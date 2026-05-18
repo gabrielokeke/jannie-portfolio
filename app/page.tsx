@@ -13,9 +13,9 @@ import { motion } from "framer-motion";
 
 const albums = [
   {
-    title: "Red & Blue Court",
+    title: "Court Colors",
     description:
-      "Dynamic basketball-inspired editorial series capturing athleticism, style, and motion against urban courts with vivid red and blue tones.",
+      "Court Colors blends fashion and athleticism on a vibrant basketball court. With striking red and blue outfits, dynamic movement, and playful poses, this editorial captures energy, confidence, and style in motion. It’s a celebration of sport, street style, and expressive fashion photography.",
     images: [
       { src: "/bskt.jpg" },
       { src: "/bskt1.jpg" },
@@ -24,20 +24,20 @@ const albums = [
     ],
   },
   {
-    title: "Urban Edge",
+    title: "Kiss the Rose",
     description:
-      "Reflects gritty and stylish life of city streets. Bold attitudes meet sleek fashion in this modern, edgy collection.",
+      "Kiss the Rose is a visual love letter to elegance, passion, and vulnerability. Each frame captures the delicate balance between beauty and strength like a rose kissed by dusk. With soft lighting, expressive emotion, and romantic depth, this collection whispers stories of longing, grace, and quiet power blooming in full color.",
     images: [
-      { src: "/29.jpg" },
-      { src: "/30.jpg" },
-      { src: "/31.5.jpg" },
-      { src: "/32.jpg" },
+      { src: "/rose1.jpg" },
+      { src: "/rose2.jpg" },
+      { src: "/rose4.jpg" },
+      { src: "/rose5.jpg" },
     ],
   },
   {
     title: "Power Moves",
     description:
-      "Dynamic poses and impactful moments that convey unstoppable energy and drive.",
+      "Power Moves embodies confidence and assertiveness. This album features dynamic poses and impactful moments that convey unstoppable energy and drive.",
     images: [
       { src: "/33.jpg" },
       { src: "/34.jpg" },
@@ -83,7 +83,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* Portfolio / Gallery */}
-      <motion.section id="portfolio" className="py-20 bg-[#0d0d0d]" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+      <motion.section id="portfolio" className="py-20 " initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
         <h2 className="text-5xl text-yellow-400 text-center font-bold mb-10">
           Portfolio
         </h2>
@@ -96,7 +96,7 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      {/* Experience & Achievements */}
+      {/* Experience & Achievements
       <motion.section id="experience" className="py-20 bg-black text-white" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
         <h2 className="text-4xl md:text-5xl font-bold text-yellow-400 text-center mb-10">
           Experience & Achievements
@@ -108,10 +108,10 @@ export default function HomePage() {
           <motion.li variants={fadeUp}>Multiple cover shoots and editorial spreads.</motion.li>
           <motion.li variants={fadeUp}>Awarded Best Emerging Model of the Year 2024.</motion.li>
         </motion.ul>
-      </motion.section>
+      </motion.section> */}
 
       {/* Skills & Services */}
-      <motion.section id="skills" className="py-20 bg-[#111111] text-white" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+      <motion.section id="skills" className="py-20  text-white" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
         <h2 className="text-4xl md:text-5xl font-bold text-yellow-400 text-center mb-10">
           Skills & Services
         </h2>

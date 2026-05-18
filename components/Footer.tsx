@@ -15,13 +15,13 @@ export default function Footer() {
         <p className="m-0 font-bold">&copy; 2025 - Jannie - All Rights Reserved</p>
         <div className="flex justify-center gap-4 text-black text-xl">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram className="hover:text-white transition-colors duration-300" />
+            <FaInstagram className=" transition-colors duration-300" />
           </a>
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <FaFacebook className="hover:text-white transition-colors duration-300" />
+            <FaFacebook className=" transition-colors duration-300" />
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <FaTwitter className="hover:text-white transition-colors duration-300" />
+            <FaTwitter className=" transition-colors duration-300" />
           </a>
         </div>
       </div>
