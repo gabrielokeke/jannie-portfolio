@@ -53,7 +53,7 @@ export default function HomePage() {
     { icon: FaFacebookF, url: "https://facebook.com/jannie" },
     { icon: FaTwitter, url: "https://twitter.com/jannie" },
     { icon: FaTiktok, url: "https://tiktok.com/@jannie" },
-    { icon: FaYoutube, url: "https://youtube.com/jannie" },
+    // { icon: FaYoutube, url: "https://youtube.com/jannie" },
   ];
 
   // Common fade + slide-up animation
